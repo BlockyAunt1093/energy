@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="풍력·태양광·조력·수소·직접메탄올 연료전지와 제주 친환경 에너지 조성지역 탐구" />
+  <title>신·재생에너지 탐구 | ENERGY NOTE</title>
+  <style>
+    :root{
+      --green:#03c75a; --green2:#0ca46b; --ink:#202124; --muted:#69717c;
+      --line:#e7eaee; --paper:#fff; --bg:#f5f7f9; --soft:#f8fafb;
+      --shadow:0 12px 38px rgba(25,39,72,.08); --radius:22px;
+      --wind:#347fa6; --solar:#e99a20; --water:#2778c7; --hydrogen:#1c9d98; --dmfc:#7359bd;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.72;word-break:keep-all}
+    button,a{font:inherit} a{color:inherit}
+    .topbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(231,234,238,.95)}
+    .topbar-inner{max-width:1220px;margin:auto;min-height:68px;padding:0 20px;display:flex;align-items:center;gap:18px}
+    .brand{display:flex;align-items:center;gap:10px;min-width:max-content;cursor:pointer;border:0;background:none;padding:0}
+    .brand-mark{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;background:var(--green);color:#fff;font-size:23px;font-weight:900;letter-spacing:-2px;box-shadow:0 5px 14px rgba(3,199,90,.22)}
+    .brand-text{font-weight:900;letter-spacing:-.3px}
+    .nav{margin-left:auto;display:flex;gap:5px;align-items:center;overflow:auto;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
+    .nav button{border:0;background:transparent;color:#4b5563;padding:9px 11px;border-radius:999px;cursor:pointer;white-space:nowrap;font-weight:750;font-size:13px;transition:.18s}
+    .nav button:hover{background:#f1f5f3;color:#111}.nav button.active{background:#e8fbf0;color:#087d3f}
+    .hero{background:radial-gradient(circle at 84% 18%,rgba(116,246,172,.34),transparent 29%),linear-gradient(135deg,#0f6639,#03c75a 54%,#6de1a3);color:#fff;overflow:hidden}
+    .hero-inner{max-width:1220px;margin:auto;padding:78px 22px 70px;display:grid;grid-template-columns:1.12fr .88fr;gap:42px;align-items:center}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(255,255,255,.36);background:rgba(255,255,255,.12);padding:7px 12px;border-radius:999px;font-size:13px;font-weight:850}
+    .hero h1{font-size:clamp(38px,6vw,66px);line-height:1.08;letter-spacing:-3px;margin:20px 0 18px}.hero p{font-size:17px;max-width:720px;color:rgba(255,255,255,.92);margin:0}
+    .hero-note{margin-top:22px;display:flex;gap:9px;flex-wrap:wrap}.pill{padding:7px 11px;border-radius:999px;background:rgba(0,0,0,.12);border:1px solid rgba(255,255,255,.24);font-size:12px;font-weight:850}
+    .hero-art{min-height:320px;position:relative;border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.20),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.26);overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.16)}
+    .hero-art svg{width:100%;height:100%;position:absolute;inset:0}
+    .container{max-width:1220px;margin:auto;padding:45px 22px 84px}.page{display:none;animation:fade .22s ease}.page.active{display:block}@keyframes fade{from{opacity:.25;transform:translateY(5px)}to{opacity:1;transform:none}}
+    .section-head{margin-bottom:25px}.kicker{color:#087f3f;font-size:13px;font-weight:900;letter-spacing:.7px;text-transform:uppercase}.section-head h2{font-size:clamp(29px,4vw,42px);letter-spacing:-1.7px;line-height:1.2;margin:8px 0 12px}.section-head p{color:var(--muted);max-width:900px;margin:0}
+    .rubric-banner{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0 36px}.rubric-box{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px}.rubric-box b{display:block;color:#087f3f;margin-bottom:4px}.rubric-box span{font-size:13px;color:var(--muted)}
+    .overview-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:13px;margin:26px 0 38px}.energy-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;cursor:pointer;text-align:left;transition:.2s;min-height:190px}.energy-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d5eadf}.energy-card .num{font-size:12px;color:#8b949e;font-weight:900}.energy-card .emoji{font-size:35px;margin:16px 0 12px;display:block}.energy-card strong{font-size:18px;display:block}.energy-card small{display:block;color:var(--muted);margin-top:5px;line-height:1.48}
+    .notice{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 24px;box-shadow:var(--shadow);margin:24px 0}.notice b{color:#087f3f}
+    .energy-hero{min-height:275px;border-radius:28px;color:#fff;padding:34px;display:grid;grid-template-columns:1.12fr .88fr;gap:22px;align-items:center;overflow:hidden;box-shadow:var(--shadow);margin-bottom:24px;position:relative}.energy-hero.wind{background:linear-gradient(135deg,#216a94,#50b9d7)}.energy-hero.solar{background:linear-gradient(135deg,#d98214,#f2b945)}.energy-hero.water{background:linear-gradient(135deg,#165cae,#42a1d9)}.energy-hero.hydrogen{background:linear-gradient(135deg,#1d7182,#58cfc4)}.energy-hero.dmfc{background:linear-gradient(135deg,#51499b,#8a6dd1)}
+    .hero-copy{z-index:2}.hero-copy .type{font-size:13px;font-weight:900;letter-spacing:.8px;opacity:.88}.hero-copy h2{font-size:clamp(31px,5vw,48px);line-height:1.1;letter-spacing:-2px;margin:8px 0 9px}.hero-copy p{margin:0;color:rgba(255,255,255,.94)}
+    .energy-visual{min-height:220px;display:grid;place-items:center;z-index:2}.energy-visual svg{width:100%;height:220px}.caption{font-size:12px;color:var(--muted);margin-top:7px;text-align:center}
+    .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 24px}.fact{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px}.fact small{display:block;color:#8b949e;font-size:12px;font-weight:850}.fact strong{display:block;font-size:18px;margin-top:5px;letter-spacing:-.4px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0}.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0}
+    .panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:25px;box-shadow:0 8px 24px rgba(24,39,75,.04)}.panel h3{font-size:20px;letter-spacing:-.6px;margin:0 0 12px;display:flex;gap:8px;align-items:center}.panel p{margin:0 0 12px;color:#3f4752}.panel p:last-child{margin-bottom:0}.location{border-left:5px solid var(--green);background:linear-gradient(90deg,#f2fff7,#fff)}.location strong{color:#087f3f}
+    .use-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}.use-card .u-num{width:31px;height:31px;border-radius:50%;background:#e9fbf1;color:#087d3f;display:grid;place-items:center;font-weight:900;margin-bottom:10px}.use-card h4{margin:0 0 7px;font-size:17px}.use-card p{margin:0;color:#58616d;font-size:14px}
+    .process{margin:22px 0;background:#111827;color:#fff;border-radius:22px;padding:28px}.process h3{margin:0 0 17px;font-size:20px}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;align-items:stretch}.step{position:relative;background:#1f2937;border:1px solid #374151;border-radius:15px;padding:17px 12px;text-align:center;min-height:108px;display:flex;flex-direction:column;justify-content:center}.step b{display:block;color:#7bf0ac;font-size:13px;margin-bottom:5px}.step span{font-size:14px}.step:not(:last-child):after{content:"→";position:absolute;right:-10px;top:50%;transform:translateY(-50%);z-index:3;color:#9ca3af;font-weight:900}
+    .formula{font-family:"Consolas","SFMono-Regular",monospace;background:#f5f3ff;border:1px solid #ddd6fe;padding:15px 17px;border-radius:13px;overflow:auto;white-space:nowrap;margin:12px 0;color:#4338ca;font-weight:750}.deep{background:#f8fafc;border:1px dashed #cfd6de;border-radius:17px;padding:20px 22px;margin-top:18px}.deep b{color:#111827}
+    .proscons{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:20px 0}.pros,.cons{border-radius:18px;padding:22px;border:1px solid var(--line);background:#fff}.pros h3{color:#087f3f;margin-top:0}.cons h3{color:#b45309;margin-top:0}.pros ul,.cons ul{margin:8px 0 0;padding-left:20px}.pros li,.cons li{margin:7px 0;color:#4b5563}
+    .source-note{font-size:12px;color:#7a838e;margin-top:10px}.source-note a{color:#087f3f;text-decoration:none;font-weight:800}.source-note a:hover{text-decoration:underline}
+    .region-hero{background:linear-gradient(135deg,#0d8053,#2bc27c);border-radius:28px;padding:34px;color:#fff;display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:center;overflow:hidden;box-shadow:var(--shadow)}.region-hero h2{font-size:clamp(32px,5vw,48px);line-height:1.12;letter-spacing:-2px;margin:8px 0 10px}.region-hero p{margin:0;color:rgba(255,255,255,.93)}.region-map{min-height:210px;display:grid;place-items:center}.region-map svg{width:100%;height:210px}
+    .facility-card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 8px 25px rgba(24,39,75,.05)}.facility-visual{height:205px;background:#eef7f3;display:grid;place-items:center}.facility-visual svg{width:100%;height:205px}.facility-body{padding:22px}.facility-body .kind{font-size:12px;color:#087f3f;font-weight:900}.facility-body h3{margin:5px 0 10px;font-size:21px;letter-spacing:-.6px}.feature-list{display:grid;gap:9px;margin-top:14px}.feature{display:grid;grid-template-columns:30px 1fr;gap:9px;align-items:start}.feature b{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:#e9fbf1;color:#087f3f;font-size:12px}.feature span{font-size:14px;color:#515b67}
+    .score-table{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}table{border-collapse:collapse;width:100%;min-width:850px}th,td{padding:15px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f7faf8;font-size:13px;color:#56616c}td{font-size:14px}tr:last-child td{border-bottom:0}.tag{display:inline-block;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:900;background:#eafbf1;color:#087f3f}
+    .source-list{display:grid;gap:11px}.source{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px 18px;transition:.18s}.source:hover{border-color:#b8dec8;transform:translateY(-2px)}.source strong{display:block;margin-bottom:4px}.source small{color:var(--muted)}
+    .footer{background:#111827;color:#cbd5e1;padding:40px 22px;text-align:center;font-size:13px}.footer b{color:#fff}.print-btn{position:fixed;right:20px;bottom:20px;z-index:80;border:0;background:#111827;color:#fff;border-radius:999px;padding:12px 16px;font-weight:850;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+    @media(max-width:1000px){.hero-inner{grid-template-columns:1fr}.hero-art{display:none}.overview-grid{grid-template-columns:repeat(2,1fr)}.facts{grid-template-columns:repeat(2,1fr)}.three-col{grid-template-columns:1fr}.energy-hero,.region-hero{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.step:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-19px;transform:translateX(-50%)}.two-col,.proscons{grid-template-columns:1fr}.rubric-banner{grid-template-columns:1fr}}
+    @media(max-width:680px){.topbar-inner{padding:0 12px;min-height:62px;gap:8px}.brand-text{display:none}.nav button{font-size:12px;padding:8px 9px}.hero-inner{padding:52px 17px 48px}.container{padding:30px 14px 64px}.overview-grid{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}.energy-hero,.region-hero{padding:24px}.panel{padding:20px}.energy-visual svg{height:190px}.facility-visual,.facility-visual svg{height:190px}}
+    @media print{.topbar,.print-btn{display:none!important}.hero{break-after:page}.page{display:block!important;page-break-before:always}.page#home{page-break-before:auto}body{background:#fff}.container{max-width:none;padding:20px}.panel,.facts,.process,.proscons,.facility-card{break-inside:avoid}.source a{word-break:break-all}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <button class="brand" onclick="showPage('home')" aria-label="홈으로"><span class="brand-mark">N</span><span class="brand-text">ENERGY NOTE</span></button>
+      <nav class="nav" aria-label="주요 메뉴">
+        <button data-page="home" class="active" onclick="showPage('home')">홈</button>
+        <button data-page="wind" onclick="showPage('wind')">풍력</button>
+        <button data-page="solar" onclick="showPage('solar')">태양광</button>
+        <button data-page="tidal" onclick="showPage('tidal')">조력</button>
+        <button data-page="hydrogen" onclick="showPage('hydrogen')">수소</button>
+        <button data-page="dmfc" onclick="showPage('dmfc')">메탄올 연료전지</button>
+        <button data-page="eco-region" onclick="showPage('eco-region')">친환경 조성지역</button>
+        <button data-page="sources" onclick="showPage('sources')">정리·출처</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow">🌱 NEW & RENEWABLE ENERGY</span>
+        <h1>신·재생에너지,<br>어디서 어떻게 쓰일까?</h1>
+        <p>풍력·태양광·조력·수소·직접메탄올 연료전지 5종을 <b>원리와 활용</b>을 중심으로 탐구하고, 실제 국내 시설을 통해 장소의 조건까지 연결했다. 이어서 제주 행원 일대를 친환경 에너지 조성지역으로 선정해 풍력·태양광·그린수소 시설 3종의 특징을 비교했다.</p>
+        <div class="hero-note"><span class="pill">에너지 5종 원리</span><span class="pill">에너지 5종 활용</span><span class="pill">그림 5종</span><span class="pill">친환경 시설 3종</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 520 330" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="420" cy="70" r="38" fill="#ffe16b"/><circle cx="420" cy="70" r="58" fill="none" stroke="#fff" opacity=".18" stroke-width="14"/>
+          <path d="M0 245 Q90 160 190 230 T390 205 T560 245 V340 H0Z" fill="#119b51"/>
+          <path d="M0 280 Q100 210 205 275 T410 240 T560 285 V340 H0Z" fill="#087c40"/>
+          <g fill="#fff" stroke="#fff" stroke-width="5" stroke-linecap="round">
+            <line x1="105" y1="235" x2="105" y2="115"/><circle cx="105" cy="115" r="6"/>
+            <line x1="105" y1="115" x2="63" y2="88"/><line x1="105" y1="115" x2="153" y2="94"/><line x1="105" y1="115" x2="103" y2="165"/>
+            <line x1="250" y1="250" x2="250" y2="145"/><circle cx="250" cy="145" r="6"/>
+            <line x1="250" y1="145" x2="214" y2="121"/><line x1="250" y1="145" x2="292" y2="129"/><line x1="250" y1="145" x2="248" y2="189"/>
+          </g>
+          <g transform="translate(330 205)"><rect width="115" height="55" rx="4" fill="#184f7a" transform="skewX(-10)"/><g stroke="#70c9ff" opacity=".85"><line x1="25" y1="3" x2="14" y2="54"/><line x1="55" y1="3" x2="44" y2="54"/><line x1="85" y1="3" x2="74" y2="54"/><line x1="8" y1="20" x2="107" y2="20"/><line x1="4" y1="38" x2="103" y2="38"/></g></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="page active" id="home">
+      <div class="section-head"><span class="kicker">PROJECT OVERVIEW</span><h2>탐구 내용을 한눈에 볼 수 있도록 구성</h2><p>각 에너지마다 명칭·구체적인 원리·활용을 분리해 정리하고 5종 모두 이해를 돕는 그림을 넣었다. 두 번째 탐구에서는 제주 행원 지역의 친환경 시설 3종과 각 시설의 특징을 세 가지씩 살펴본다.</p></div>
+      <div class="rubric-banner">
+        <div class="rubric-box"><b>① 5종 원리</b><span>풍력·태양광·조력·수소·연료전지의 에너지 변환 과정을 단계별로 설명</span></div>
+        <div class="rubric-box"><b>② 5종 활용</b><span>각 에너지마다 실제 사용 분야를 3가지씩 제시</span></div>
+        <div class="rubric-box"><b>③ 그림·시설 탐구</b><span>에너지 5종 그림 + 친환경 조성지역 시설 3종 그림과 특징 3개씩 수록</span></div>
+      </div>
+      <div class="overview-grid">
+        <button class="energy-card" onclick="showPage('wind')"><span class="num">01 · 재생에너지</span><span class="emoji">🌬️</span><strong>풍력에너지</strong><small>바람의 운동에너지 → 회전 → 전기<br>사례: 경북 영양군 맹동산</small></button>
+        <button class="energy-card" onclick="showPage('solar')"><span class="num">02 · 재생에너지</span><span class="emoji">☀️</span><strong>태양광에너지</strong><small>광전효과로 햇빛 → 전기<br>사례: 경남 합천댐 수상태양광</small></button>
+        <button class="energy-card" onclick="showPage('tidal')"><span class="num">03 · 재생에너지</span><span class="emoji">🌊</span><strong>조력에너지</strong><small>밀물·썰물의 수위 차 → 전기<br>사례: 경기 안산 시화호</small></button>
+        <button class="energy-card" onclick="showPage('hydrogen')"><span class="num">04 · 신에너지</span><span class="emoji">🫧</span><strong>수소에너지</strong><small>재생전력 + 물 → 그린수소<br>사례: 제주 행원 3.3MW</small></button>
+        <button class="energy-card" onclick="showPage('dmfc')"><span class="num">05 · 신에너지</span><span class="emoji">🔋</span><strong>연료전지 — DMFC</strong><small>메탄올의 화학에너지 → 전기<br>사례: 전북 완주 가온셀</small></button>
+      </div>
+      <div class="notice"><b>분류 안내</b><br>이 탐구는 학교 교과의 ‘신·재생에너지’ 분류에 맞춰 수소와 연료전지를 신에너지로 다룬다. 2026년 9월 이후 국내 법·제도 체계에서는 신에너지와 재생에너지의 관리 체계가 개편되었으므로, 여기서는 수행평가의 교과 분류를 기준으로 설명한다.</div>
+    </section>
+
+    <section class="page" id="wind">
+      <div class="energy-hero wind">
+        <div class="hero-copy"><span class="type">01 · RENEWABLE ENERGY</span><h2>풍력에너지</h2><p>바람의 운동에너지를 블레이드의 회전운동으로 바꾸고, 발전기에서 전기에너지로 변환한다.</p></div>
+        <div class="energy-visual">
+          <svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" aria-label="풍력발전 원리 그림">
+            <rect width="420" height="220" rx="24" fill="rgba(255,255,255,.10)"/><path d="M0 173 Q85 113 172 168 T340 150 T440 171 V225 H0Z" fill="rgba(16,81,111,.55)"/>
+            <g stroke="#fff" stroke-width="6" stroke-linecap="round" fill="#fff"><line x1="210" y1="181" x2="210" y2="72"/><circle cx="210" cy="72" r="7"/><line x1="210" y1="72" x2="142" y2="53"/><line x1="210" y1="72" x2="250" y2="15"/><line x1="210" y1="72" x2="239" y2="134"/></g>
+            <g fill="none" stroke="#dff7ff" stroke-width="4" stroke-linecap="round"><path d="M23 56 C72 35 105 36 145 51"/><path d="M28 82 C73 66 106 68 146 78"/><path d="M36 108 C74 96 103 97 135 102"/></g>
+            <text x="24" y="31" fill="#fff" font-size="14" font-weight="700">바람</text><text x="273" y="190" fill="#fff" font-size="13" font-weight="700">회전 → 발전기 → 전기</text>
+          </svg>
+          <div class="caption" style="color:rgba(255,255,255,.83)">그림 1. 풍력발전 에너지 변환 개념도</div>
+        </div>
+      </div>
+      <div class="facts"><div class="fact"><small>종류</small><strong>재생에너지</strong></div><div class="fact"><small>국내 사례</small><strong>영양풍력발전단지</strong></div><div class="fact"><small>위치</small><strong>경북 영양군 맹동산</strong></div><div class="fact"><small>설비규모</small><strong>61.5 MW</strong></div></div>
+      <div class="two-col">
+        <article class="panel"><h3>🔎 원리 — 왜 바람이 전기가 될까?</h3><p>바람은 움직이는 공기이므로 <b>운동에너지</b>를 가진다. 바람이 블레이드에 닿으면 블레이드의 곡면에서 양력과 항력이 생겨 로터가 회전한다. 이 회전력이 주축을 통해 발전기로 전달된다.</p><p>발전기에서는 자석과 코일이 상대적으로 움직이면서 <b>전자기 유도</b>가 일어나 전류가 만들어진다. 즉, 바람의 운동에너지가 기계적 회전에너지로 바뀐 뒤 전기에너지로 변환된다.</p></article>
+        <article class="panel location"><h3>📍 실제 장소와 입지 장점</h3><p><strong>경상북도 영양군 맹동산 일대</strong>에는 영양풍력발전단지가 조성되어 있다. 한국관광공사 자료는 이 지역에서 동해와 서쪽 산맥에서 불어오는 바람이 모여 풍력발전에 좋은 조건을 형성한다고 소개한다.</p><p>높은 능선은 주변 장애물이 적고 바람을 지속적으로 받기 쉬워 터빈을 배치하기 유리하다. 전력거래소 자료상 영양풍력의 설비용량은 <b>61.5MW</b>다.</p><div class="source-note">출처: <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=b2f8d657-7513-4741-af9c-3b0dbab537cb" target="_blank">한국관광공사</a>, <a href="https://www.kpx.or.kr/" target="_blank">전력거래소</a></div></article>
+      </div>
+      <div class="process"><h3>⚡ 에너지 변환 과정</h3><div class="steps"><div class="step"><b>1</b><span>바람의 운동에너지</span></div><div class="step"><b>2</b><span>블레이드 회전</span></div><div class="step"><b>3</b><span>주축으로 회전력 전달</span></div><div class="step"><b>4</b><span>발전기 전자기 유도</span></div><div class="step"><b>5</b><span>전기에너지 생산</span></div></div></div>
+      <div class="section-head" style="margin-top:30px"><span class="kicker">APPLICATION</span><h2 style="font-size:30px">풍력에너지의 활용</h2></div>
+      <div class="three-col"><div class="use-card"><div class="u-num">1</div><h4>대규모 전력 생산</h4><p>육상·해상 풍력단지에서 생산한 전기를 송전망에 보내 가정과 산업체에서 사용한다.</p></div><div class="use-card"><div class="u-num">2</div><h4>도서·분산형 전원</h4><p>섬이나 전력망이 약한 지역에서 태양광·ESS와 결합해 지역 전원으로 활용할 수 있다.</p></div><div class="use-card"><div class="u-num">3</div><h4>그린수소 생산 전력</h4><p>풍력으로 만든 전기를 수전해 장치에 공급해 물에서 수소를 생산하는 데 사용할 수 있다.</p></div></div>
+    </section>
+
+    <section class="page" id="solar">
+      <div class="energy-hero solar">
+        <div class="hero-copy"><span class="type">02 · RENEWABLE ENERGY</span><h2>태양광에너지</h2><p>태양빛이 반도체 태양전지에 닿을 때 생기는 광전효과를 이용해 전기를 생산한다.</p></div>
+        <div class="energy-visual"><svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" aria-label="태양광발전 원리 그림"><rect width="420" height="220" rx="24" fill="rgba(255,255,255,.10)"/><circle cx="325" cy="52" r="29" fill="#fff4a4"/><g stroke="#fff4a4" stroke-width="4" opacity=".85"><line x1="325" y1="9" x2="325" y2="0"/><line x1="366" y1="52" x2="385" y2="52"/><line x1="354" y1="22" x2="369" y2="8"/></g><g transform="translate(78 105)"><polygon points="0,55 220,55 195,0 25,0" fill="#174d70" stroke="#d8f2ff" stroke-width="3"/><g stroke="#74caf6" stroke-width="2"><line x1="43" y1="0" x2="24" y2="55"/><line x1="82" y1="0" x2="73" y2="55"/><line x1="121" y1="0" x2="121" y2="55"/><line x1="160" y1="0" x2="169" y2="55"/><line x1="16" y1="18" x2="204" y2="18"/><line x1="8" y1="37" x2="212" y2="37"/></g><line x1="42" y1="57" x2="31" y2="86" stroke="#fff" stroke-width="5"/><line x1="183" y1="57" x2="194" y2="86" stroke="#fff" stroke-width="5"/></g><path d="M296 82 L260 114" stroke="#fff4a4" stroke-width="5" stroke-linecap="round"/><path d="M319 88 L284 121" stroke="#fff4a4" stroke-width="5" stroke-linecap="round"/><text x="22" y="30" fill="#fff" font-size="14" font-weight="700">햇빛 → 태양전지 → 직류전기</text></svg><div class="caption" style="color:rgba(255,255,255,.83)">그림 2. 태양광발전의 광전효과 개념도</div></div>
+      </div>
+      <div class="facts"><div class="fact"><small>종류</small><strong>재생에너지</strong></div><div class="fact"><small>국내 사례</small><strong>합천댐 수상태양광</strong></div><div class="fact"><small>위치</small><strong>경남 합천군</strong></div><div class="fact"><small>1단계 용량</small><strong>약 41.5 MW</strong></div></div>
+      <div class="two-col"><article class="panel"><h3>🔎 원리 — 광전효과</h3><p>태양전지는 주로 P형과 N형 반도체를 접합해 만든다. 빛의 입자인 광자가 태양전지에 에너지를 전달하면 전자와 정공이 생기고, 내부 전기장 때문에 서로 반대 방향으로 이동한다.</p><p>이때 외부 회로를 연결하면 전자가 이동하며 <b>직류(DC)</b>가 흐른다. 인버터는 이 직류를 가정과 전력망에서 사용하는 <b>교류(AC)</b>로 바꾼다.</p></article><article class="panel location"><h3>📍 실제 장소와 입지 장점</h3><p><strong>경상남도 합천군 합천댐</strong>에는 대규모 수상태양광이 운영된다. K-water 자료의 1단계 설비용량은 약 <b>41.5MW</b>이며 2021년 발전을 시작했다.</p><p>댐의 넓은 기존 수면을 이용하므로 별도의 넓은 육상 부지를 새로 확보할 필요를 줄일 수 있고, 주변 고층 장애물이 적어 패널을 넓게 배치하기 쉽다.</p><div class="source-note">출처: <a href="https://www.kwater.or.kr/news/repoView.do?brdId=KO26&pageNo=13&s_mid=362&seq=136557" target="_blank">K-water</a>, <a href="https://www.me.go.kr/" target="_blank">환경부</a></div></article></div>
+      <div class="process"><h3>⚡ 에너지 변환 과정</h3><div class="steps"><div class="step"><b>1</b><span>태양빛이 태양전지에 도달</span></div><div class="step"><b>2</b><span>전자·정공 생성</span></div><div class="step"><b>3</b><span>전자 이동으로 직류 생성</span></div><div class="step"><b>4</b><span>인버터에서 교류로 변환</span></div><div class="step"><b>5</b><span>건물·전력망에서 사용</span></div></div></div>
+      <div class="section-head" style="margin-top:30px"><span class="kicker">APPLICATION</span><h2 style="font-size:30px">태양광에너지의 활용</h2></div>
+      <div class="three-col"><div class="use-card"><div class="u-num">1</div><h4>건물 지붕 발전</h4><p>주택·학교·공장 지붕에서 전기를 생산해 건물에서 직접 사용하거나 전력망에 보낼 수 있다.</p></div><div class="use-card"><div class="u-num">2</div><h4>수상태양광</h4><p>댐·저수지 수면 위에 부유식 패널을 설치해 육지 사용을 줄이면서 전력을 생산한다.</p></div><div class="use-card"><div class="u-num">3</div><h4>독립형 전원</h4><p>가로등·농업시설·통신장비 등에 배터리와 함께 설치해 전력망과 떨어진 곳의 전원으로 활용한다.</p></div></div>
+    </section>
+
+    <section class="page" id="tidal">
+      <div class="energy-hero water">
+        <div class="hero-copy"><span class="type">03 · RENEWABLE ENERGY</span><h2>조력에너지</h2><p>밀물과 썰물로 생기는 바다와 호수의 수위 차를 이용해 수차를 돌리고 전기를 생산한다.</p></div>
+        <div class="energy-visual"><svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" aria-label="조력발전 원리 그림"><rect width="420" height="220" rx="24" fill="rgba(255,255,255,.10)"/><path d="M0 82 C65 64 112 98 170 82 C230 64 286 97 420 72 V220 H0Z" fill="#62c9f2" opacity=".88"/><rect x="181" y="57" width="58" height="128" rx="8" fill="#eaf1f4"/><rect x="194" y="112" width="32" height="48" rx="7" fill="#1a6fad"/><circle cx="210" cy="136" r="14" fill="none" stroke="#fff" stroke-width="4"/><g stroke="#fff" stroke-width="3"><line x1="210" y1="122" x2="210" y2="150"/><line x1="196" y1="136" x2="224" y2="136"/><line x1="200" y1="126" x2="220" y2="146"/><line x1="220" y1="126" x2="200" y2="146"/></g><path d="M103 126 H173" stroke="#fff" stroke-width="7" stroke-linecap="round"/><polygon points="172,115 190,126 172,137" fill="#fff"/><path d="M246 126 H315" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".55"/><text x="28" y="38" fill="#fff" font-size="14" font-weight="700">밀물의 수위 차 → 바닷물 흐름 → 수차 → 발전기</text><text x="45" y="112" fill="#fff" font-size="12" font-weight="700">바다</text><text x="330" y="112" fill="#fff" font-size="12" font-weight="700">시화호</text></svg><div class="caption" style="color:rgba(255,255,255,.83)">그림 3. 조력발전의 수위 차와 수차 회전 개념도</div></div>
+      </div>
+      <div class="facts"><div class="fact"><small>종류</small><strong>재생에너지</strong></div><div class="fact"><small>국내 사례</small><strong>시화호 조력발전소</strong></div><div class="fact"><small>위치</small><strong>경기 안산시 시화방조제</strong></div><div class="fact"><small>시설용량</small><strong>254 MW</strong></div></div>
+      <div class="two-col"><article class="panel"><h3>🔎 원리 — 조수의 수위 차를 전기로</h3><p>조력발전은 달과 태양의 인력 때문에 반복되는 <b>밀물과 썰물</b>을 이용한다. 밀물 때 바깥 바다의 수위가 높아지면 바다와 시화호 사이에 수위 차가 생기고, 이 차이 때문에 물이 낮은 쪽으로 흐르려는 힘이 발생한다.</p><p>시화호 조력발전소는 <b>단류식 창조발전</b> 방식으로, 밀물 때 바닷물을 시화호 안으로 들여보내면서 수차를 돌린다. 수차와 연결된 발전기가 회전하면 전자기 유도로 전기가 만들어진다.</p></article><article class="panel location"><h3>📍 실제 장소와 입지 장점</h3><p><strong>경기도 안산시 단원구 시화방조제</strong>에 시화호 조력발전소가 있다. K-water 자료 기준 설비용량은 <b>254MW</b>이며, <b>25.4MW급 수차발전기 10기</b>가 설치되어 있다.</p><p>서해안은 조수간만의 차가 크고, 이미 시화방조제가 바다와 시화호를 나누고 있어 수위 차를 만들고 바닷물의 흐름을 발전기로 집중시키기에 유리하다. 연간 발전량은 약 <b>552GWh</b> 규모로 제시된다.</p><div class="source-note">출처: <a href="https://www.kwater.or.kr/website/tlight/sub01_05.do" target="_blank">K-water 시화호조력발전소</a></div></article></div>
+      <div class="process"><h3>⚡ 에너지 변환 과정</h3><div class="steps"><div class="step"><b>1</b><span>밀물로 바다 수위 상승</span></div><div class="step"><b>2</b><span>바다와 시화호 사이 수위 차 형성</span></div><div class="step"><b>3</b><span>바닷물이 수차를 통과</span></div><div class="step"><b>4</b><span>수차·발전기 회전</span></div><div class="step"><b>5</b><span>전기에너지 생산</span></div></div></div>
+      <div class="section-head" style="margin-top:30px"><span class="kicker">APPLICATION</span><h2 style="font-size:30px">조력에너지의 활용</h2></div>
+      <div class="three-col"><div class="use-card"><div class="u-num">1</div><h4>대규모 전력 생산</h4><p>조수간만의 차가 큰 해안에서 수차와 발전기를 이용해 전력을 생산하고 전력망에 공급한다.</p></div><div class="use-card"><div class="u-num">2</div><h4>방조제와 연계한 발전</h4><p>바다와 호수를 나누는 방조제에 발전시설을 설치하면 기존 구조물을 활용해 물의 흐름을 제어하고 발전에 이용할 수 있다.</p></div><div class="use-card"><div class="u-num">3</div><h4>해수 유통과 수질 관리</h4><p>시화호처럼 바닷물을 주기적으로 드나들게 하는 방식은 발전과 함께 해수 순환을 늘려 수질 관리에도 활용될 수 있다.</p></div></div>
+    </section>
+
+    <section class="page" id="hydrogen">
+      <div class="energy-hero hydrogen">
+        <div class="hero-copy"><span class="type">04 · NEW ENERGY</span><h2>수소에너지 — 그린수소</h2><p>재생에너지 전력으로 물을 전기분해해 수소를 만들고, 저장·운송한 뒤 연료나 전력 생산에 활용한다.</p></div>
+        <div class="energy-visual"><svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" aria-label="그린수소 수전해 원리 그림"><rect width="420" height="220" rx="24" fill="rgba(255,255,255,.10)"/><rect x="129" y="56" width="164" height="119" rx="15" fill="#fff" opacity=".92"/><line x1="211" y1="69" x2="211" y2="164" stroke="#85a5ac" stroke-width="4" stroke-dasharray="6 6"/><rect x="151" y="88" width="15" height="59" rx="5" fill="#4a7fd1"/><rect x="256" y="88" width="15" height="59" rx="5" fill="#e45c66"/><circle cx="170" cy="78" r="6" fill="#8ddcff"/><circle cx="181" cy="94" r="5" fill="#8ddcff"/><circle cx="252" cy="78" r="6" fill="#fff0b0"/><circle cx="241" cy="94" r="5" fill="#fff0b0"/><text x="153" y="167" fill="#2570a5" font-size="13" font-weight="800">H₂</text><text x="253" y="167" fill="#c04b55" font-size="13" font-weight="800">O₂</text><path d="M67 103 H117" stroke="#fff" stroke-width="5" stroke-linecap="round"/><polygon points="116,93 132,103 116,113" fill="#fff"/><text x="26" y="83" fill="#fff" font-size="13" font-weight="700">재생전력</text><path d="M301 103 H350" stroke="#fff" stroke-width="5" stroke-linecap="round"/><polygon points="349,93 365,103 349,113" fill="#fff"/><text x="307" y="83" fill="#fff" font-size="13" font-weight="700">수소 저장</text></svg><div class="caption" style="color:rgba(255,255,255,.83)">그림 4. 재생전력을 이용한 물 전기분해 개념도</div></div>
+      </div>
+      <div class="facts"><div class="fact"><small>종류</small><strong>신에너지</strong></div><div class="fact"><small>국내 사례</small><strong>행원 그린수소 생산기지</strong></div><div class="fact"><small>위치</small><strong>제주 행원 지역</strong></div><div class="fact"><small>수전해 규모</small><strong>3.3 MW</strong></div></div>
+      <div class="two-col"><article class="panel"><h3>🔎 원리 — 물을 전기로 분해</h3><p>수소는 자연에서 바로 얻어 쓰기보다 물이나 화석연료 등 다른 물질에서 분리해 만드는 <b>에너지 운반체</b>다. 그린수소는 풍력·태양광 같은 재생전력을 사용해 물을 전기분해한다.</p><p>수전해 장치에 직류 전기를 공급하면 물 분자가 전극 반응을 통해 수소와 산소로 나뉜다. 생산된 수소는 압축·저장 후 연료전지, 수소차, 산업 공정 등에 사용할 수 있다.</p><div class="formula">2H₂O → 2H₂ + O₂</div></article><article class="panel location"><h3>📍 실제 장소와 입지 장점</h3><p>제주에서는 <strong>행원 3.3MW 수전해 단지</strong>가 구축되어 있다. 산업통상자원부 자료에 따르면 2024년 9월부터 하루 약 <b>200kg의 수소</b>를 생산해 도내 수소버스와 승용차 등에 공급하고 있다.</p><p>제주는 풍력·태양광 설비가 많아 재생전력이 풍부하다. 전력 수요보다 생산이 많을 때 남는 전기를 수소로 바꾸면 에너지를 저장 가능한 형태로 전환할 수 있다는 장점이 있다.</p><div class="source-note">출처: <a href="https://www.motie.go.kr/" target="_blank">산업통상자원부</a>, <a href="https://www.jeju.go.kr/lifecycle/notice/guide.htm?act=download&no=1&seq=2003033" target="_blank">제주특별자치도</a></div></article></div>
+      <div class="process"><h3>⚡ 에너지 변환 과정</h3><div class="steps"><div class="step"><b>1</b><span>풍력·태양광으로 전기 생산</span></div><div class="step"><b>2</b><span>수전해 장치에 전력 공급</span></div><div class="step"><b>3</b><span>물 분자를 전기분해</span></div><div class="step"><b>4</b><span>수소와 산소 생성</span></div><div class="step"><b>5</b><span>수소 저장·운송·사용</span></div></div></div>
+      <div class="section-head" style="margin-top:30px"><span class="kicker">APPLICATION</span><h2 style="font-size:30px">수소에너지의 활용</h2></div>
+      <div class="three-col"><div class="use-card"><div class="u-num">1</div><h4>수소 모빌리티</h4><p>수소 승용차·버스의 연료전지에 공급해 전기를 만들고 모터를 구동한다.</p></div><div class="use-card"><div class="u-num">2</div><h4>발전·비상전원</h4><p>연료전지 발전설비에 수소를 공급해 건물·데이터센터·전력망용 전기를 생산할 수 있다.</p></div><div class="use-card"><div class="u-num">3</div><h4>산업용 원료·열원</h4><p>정유·화학·철강 공정의 원료로 사용하거나, 장기적으로 고온 산업열과 환원 공정에 활용할 수 있다.</p></div></div>
+    </section>
+
+    <section class="page" id="dmfc">
+      <div class="energy-hero dmfc">
+        <div class="hero-copy"><span class="type">05 · NEW ENERGY / FUEL CELL</span><h2>연료전지 — 직접메탄올(DMFC)</h2><p>액체 메탄올을 연료극에 직접 공급해 전기화학반응으로 화학에너지를 전기에너지로 바꾼다.</p></div>
+        <div class="energy-visual"><svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" aria-label="DMFC 원리 그림"><rect width="420" height="220" rx="24" fill="rgba(255,255,255,.10)"/><rect x="120" y="48" width="180" height="128" rx="17" fill="#fff" opacity=".94"/><rect x="149" y="69" width="24" height="88" rx="5" fill="#7557bd"/><rect x="247" y="69" width="24" height="88" rx="5" fill="#4aa7c7"/><rect x="202" y="63" width="12" height="100" rx="4" fill="#d9d8f7"/><path d="M178 96 C191 96 191 84 200 84" stroke="#6b53b5" stroke-width="4" fill="none"/><path d="M178 118 C191 118 191 130 200 130" stroke="#6b53b5" stroke-width="4" fill="none"/><path d="M220 84 C230 84 230 96 242 96" stroke="#479ab7" stroke-width="4" fill="none"/><path d="M220 130 C230 130 230 118 242 118" stroke="#479ab7" stroke-width="4" fill="none"/><path d="M160 52 C160 26 260 26 260 52" fill="none" stroke="#fff" stroke-width="4"/><polygon points="253,44 269,52 253,60" fill="#fff"/><text x="25" y="92" fill="#fff" font-size="14" font-weight="700">CH₃OH + H₂O</text><text x="310" y="92" fill="#fff" font-size="14" font-weight="700">O₂</text><text x="27" y="142" fill="#fff" font-size="13">연료극</text><text x="329" y="142" fill="#fff" font-size="13">공기극</text><text x="155" y="201" fill="#fff" font-size="13" font-weight="700">외부회로로 전자 이동 → 전류</text></svg><div class="caption" style="color:rgba(255,255,255,.83)">그림 5. 직접메탄올 연료전지의 전기화학반응 개념도</div></div>
+      </div>
+      <div class="facts"><div class="fact"><small>공식 분류</small><strong>연료전지</strong></div><div class="fact"><small>세부 종류</small><strong>DMFC</strong></div><div class="fact"><small>주 연료</small><strong>메탄올 CH₃OH</strong></div><div class="fact"><small>국내 사례</small><strong>전북 완주 가온셀</strong></div></div>
+      <div class="two-col"><article class="panel"><h3>🔎 원리 — 연소가 아닌 전기화학반응</h3><p>DMFC는 Direct Methanol Fuel Cell의 약자다. 메탄올과 물을 연료극에 공급하면 촉매 표면에서 메탄올이 반응해 <b>수소이온(H⁺), 전자(e⁻), 이산화탄소(CO₂)</b>가 만들어진다.</p><p>수소이온은 전해질막을 통과하지만 전자는 막을 통과하지 못해 외부 회로로 이동한다. 이 전자의 이동이 전류가 된다. 공기극에서는 산소·수소이온·전자가 반응해 물이 만들어진다.</p><div class="formula">연료극: CH₃OH + H₂O → CO₂ + 6H⁺ + 6e⁻</div><div class="formula">전체: CH₃OH + 3/2 O₂ → CO₂ + 2H₂O + 전기 + 열</div></article><article class="panel location"><h3>📍 국내 개발·활용 사례</h3><p><strong>전북특별자치도 완주군 봉동읍 완주산단6로 212</strong>에 있는 가온셀은 DMFC 시스템을 개발·상용화하고 있다. 공식 자료에는 화물취급용, 오프그리드, 정적·동적 시스템 등이 소개된다.</p><p>메탄올은 상온에서 액체이므로 탱크에 저장하고 보충하기 쉽다. 그래서 충전 대기시간을 줄이고 장시간 독립전원이 필요한 물류·통신·야외 전원 분야에 적용하기 좋다.</p><div class="source-note">출처: <a href="https://www.gaoncell.com/ko/technology/tec-fc/dmfc" target="_blank">가온셀 DMFC 기술</a>, <a href="https://www.knrec.or.kr/biz/korea/intro/kor_fuel.do" target="_blank">한국에너지공단 연료전지</a></div></article></div>
+      <div class="process"><h3>⚡ 에너지 변환 과정</h3><div class="steps"><div class="step"><b>1</b><span>메탄올+물을 연료극에 공급</span></div><div class="step"><b>2</b><span>촉매 반응으로 H⁺·전자 분리</span></div><div class="step"><b>3</b><span>전자가 외부회로로 이동</span></div><div class="step"><b>4</b><span>공기극에서 산소와 반응</span></div><div class="step"><b>5</b><span>전기 + 물 + CO₂ 생성</span></div></div></div>
+      <div class="section-head" style="margin-top:30px"><span class="kicker">APPLICATION</span><h2 style="font-size:30px">직접메탄올 연료전지의 활용</h2></div>
+      <div class="three-col"><div class="use-card"><div class="u-num">1</div><h4>물류장비·지게차</h4><p>연료 보충이 빠르고 장시간 운전이 가능해 물류센터의 화물취급 장비 전원으로 활용할 수 있다.</p></div><div class="use-card"><div class="u-num">2</div><h4>통신·비상 백업전원</h4><p>전력망이 끊겼을 때 기지국·통신장비에 장시간 전력을 공급하는 백업전원으로 활용할 수 있다.</p></div><div class="use-card"><div class="u-num">3</div><h4>오프그리드·휴대용 전원</h4><p>전력망이 없는 야외·원격지에서 센서, 관측장비, 이동형 전자장비의 독립전원으로 사용할 수 있다.</p></div></div>
+      <div class="deep"><b>주의할 점</b><br>DMFC는 연료전지이지만 메탄올에 탄소가 들어 있기 때문에 반응 과정에서 CO₂가 발생한다. 따라서 ‘배출가스가 전혀 없는 에너지’라고 쓰기보다는, <b>연소기관 없이 전기화학적으로 전기를 만드는 연료전지</b>라고 설명하는 것이 정확하다.</div>
+    </section>
+
+    <section class="page" id="eco-region">
+      <div class="region-hero">
+        <div><span class="type" style="font-size:13px;font-weight:900;opacity:.9">ECO-FRIENDLY ENERGY REGION</span><h2>친환경 에너지 조성지역<br>제주특별자치도 제주시 구좌읍 행원 일대</h2><p>행원 지역은 제주 바람을 이용한 풍력발전의 상업화 역사가 깊고, 태양광발전과 그린수소 생산플랜트까지 운영되어 <b>전기 생산 → 수소 생산·활용</b>으로 이어지는 친환경 에너지 시설을 한 지역에서 살펴보기 좋다.</p></div>
+        <div class="region-map"><svg viewBox="0 0 360 210" xmlns="http://www.w3.org/2000/svg"><path d="M54 114 C72 68 128 41 193 48 C253 54 311 78 315 111 C318 142 267 164 197 165 C124 166 34 151 54 114Z" fill="rgba(255,255,255,.86)"/><circle cx="245" cy="92" r="8" fill="#03c75a"/><circle cx="245" cy="92" r="18" fill="none" stroke="#03c75a" stroke-width="4" opacity=".35"/><text x="204" y="126" fill="#087c4b" font-size="15" font-weight="900">행원 일대</text><path d="M245 100 L234 119" stroke="#087c4b" stroke-width="3"/><text x="106" y="194" fill="#fff" font-size="13" font-weight="700">제주 동부 해안 · 구좌읍</text></svg></div>
+      </div>
+      <div class="notice"><b>지역명:</b> 제주특별자치도 제주시 구좌읍 행원 일대　　<b>친환경 시설 3종:</b> ① 행원 풍력발전단지 ② 행원 태양광발전단지 ③ 행원 3.3MW 그린수소 생산플랜트</div>
+      <div class="section-head" style="margin-top:34px"><span class="kicker">THREE FACILITIES</span><h2>친환경 시설 3종과 각각의 특징 3가지</h2><p>각 시설마다 시설 종류 명칭과 특징을 세 가지씩 분리해 정리했다.</p></div>
+      <div class="three-col">
+        <article class="facility-card">
+          <div class="facility-visual"><svg viewBox="0 0 360 205" xmlns="http://www.w3.org/2000/svg" aria-label="행원 풍력발전단지 그림"><rect width="360" height="205" fill="#dff4fb"/><rect y="138" width="360" height="67" fill="#78cbe3"/><path d="M0 150 Q90 117 170 145 T360 137 V205 H0Z" fill="#6aa66b"/><g stroke="#fff" fill="#fff" stroke-width="5" stroke-linecap="round"><line x1="111" y1="155" x2="111" y2="65"/><circle cx="111" cy="65" r="6"/><line x1="111" y1="65" x2="62" y2="48"/><line x1="111" y1="65" x2="142" y2="23"/><line x1="111" y1="65" x2="131" y2="112"/><line x1="240" y1="160" x2="240" y2="88"/><circle cx="240" cy="88" r="5"/><line x1="240" y1="88" x2="201" y2="74"/><line x1="240" y1="88" x2="265" y2="54"/><line x1="240" y1="88" x2="257" y2="126"/></g><text x="17" y="27" fill="#26687f" font-size="14" font-weight="900">행원 풍력발전단지</text></svg></div>
+          <div class="facility-body"><span class="kind">시설 1 · 풍력발전시설</span><h3>행원 풍력발전단지</h3><div class="feature-list"><div class="feature"><b>1</b><span><b>제주 바람 활용:</b> 바람이 많은 제주 동부 해안의 풍력자원을 전력으로 바꾼다.</span></div><div class="feature"><b>2</b><span><b>상업화 역사:</b> 제주에너지공사 자료에 따르면 1998년부터 상업운전에 들어가 국내 초기 풍력 상업화 사례가 되었다.</span></div><div class="feature"><b>3</b><span><b>무연료 발전:</b> 운전 중 연료를 태우지 않고 바람으로 터빈을 돌려 전기를 생산한다.</span></div></div><div class="source-note">출처: <a href="https://www.jejuenergy.or.kr/index.php/contents/energy/cfi" target="_blank">제주에너지공사 CFI 기술투어</a></div></div>
+        </article>
+        <article class="facility-card">
+          <div class="facility-visual"><svg viewBox="0 0 360 205" xmlns="http://www.w3.org/2000/svg" aria-label="행원 태양광발전단지 그림"><rect width="360" height="205" fill="#fff2cc"/><circle cx="292" cy="43" r="25" fill="#f8c84e"/><path d="M0 150 Q110 125 210 146 T360 137 V205 H0Z" fill="#79b76d"/><g transform="translate(57 93)"><polygon points="0,58 245,58 218,0 26,0" fill="#1b567c"/><g stroke="#64b7e9" stroke-width="2"><line x1="48" y1="0" x2="24" y2="58"/><line x1="95" y1="0" x2="85" y2="58"/><line x1="142" y1="0" x2="146" y2="58"/><line x1="189" y1="0" x2="207" y2="58"/><line x1="15" y1="19" x2="229" y2="19"/><line x1="7" y1="39" x2="238" y2="39"/></g></g><text x="17" y="27" fill="#9d6712" font-size="14" font-weight="900">행원 태양광발전단지</text></svg></div>
+          <div class="facility-body"><span class="kind">시설 2 · 태양광발전시설</span><h3>행원 태양광발전단지</h3><div class="feature-list"><div class="feature"><b>1</b><span><b>415kW 규모:</b> 제주에너지공사가 운영하는 행원태양광발전단지는 415kW 설비로 소개된다.</span></div><div class="feature"><b>2</b><span><b>낮 시간 분산발전:</b> 햇빛을 받는 동안 지역에서 직접 전기를 생산해 분산형 에너지원으로 활용된다.</span></div><div class="feature"><b>3</b><span><b>풍력과 상호 보완:</b> 같은 지역의 풍력과 함께 사용하면 서로 다른 기상조건의 발전원을 조합할 수 있다.</span></div></div><div class="source-note">출처: <a href="https://www.jejuenergy.or.kr/index.php/contents/business/part1" target="_blank">제주에너지공사 발전설비 운영관리</a></div></div>
+        </article>
+        <article class="facility-card">
+          <div class="facility-visual"><svg viewBox="0 0 360 205" xmlns="http://www.w3.org/2000/svg" aria-label="행원 그린수소 생산플랜트 그림"><rect width="360" height="205" fill="#def7f3"/><rect x="66" y="75" width="228" height="94" rx="12" fill="#fff" stroke="#91d9cc" stroke-width="3"/><rect x="90" y="96" width="53" height="54" rx="7" fill="#46a6bf"/><rect x="153" y="96" width="53" height="54" rx="7" fill="#7d6fc5"/><rect x="216" y="96" width="53" height="54" rx="7" fill="#48b693"/><path d="M115 75 V51 H242 V75" fill="none" stroke="#419785" stroke-width="5"/><circle cx="178" cy="51" r="12" fill="#fff" stroke="#419785" stroke-width="4"/><text x="169" y="56" fill="#419785" font-size="13" font-weight="900">H₂</text><text x="17" y="27" fill="#267d6d" font-size="14" font-weight="900">3.3MW 그린수소 생산플랜트</text></svg></div>
+          <div class="facility-body"><span class="kind">시설 3 · 그린수소 생산시설</span><h3>행원 3.3MW 수전해 플랜트</h3><div class="feature-list"><div class="feature"><b>1</b><span><b>물 전기분해:</b> 재생에너지 전력으로 물을 수소와 산소로 분해해 그린수소를 생산한다.</span></div><div class="feature"><b>2</b><span><b>3.3MW 실증 규모:</b> 제주도와 산업부 자료에서 3.3MW 생산기지 운영이 확인된다.</span></div><div class="feature"><b>3</b><span><b>실제 수송 활용:</b> 2024년 9월부터 하루 약 200kg의 수소를 생산해 도내 수소버스·승용차에 공급하고 있다.</span></div></div><div class="source-note">출처: <a href="https://www.jeju.go.kr/lifecycle/notice/guide.htm?act=download&no=1&seq=2003033" target="_blank">제주특별자치도</a>, <a href="https://www.motie.go.kr/" target="_blank">산업통상자원부</a></div></div>
+        </article>
+      </div>
+      <div class="notice"><b>지역을 행원으로 선택한 이유</b><br>한 지역에서 풍력발전과 태양광발전으로 전기를 만들고, 재생전력을 활용한 그린수소 생산까지 연결해 살펴볼 수 있기 때문이다. 즉, 단순히 시설이 3개 있다는 것보다 <b>재생전력 생산 → 저장 가능한 수소 생산 → 수송 분야 활용</b>이라는 에너지 흐름을 설명하기 좋다.</div>
+    </section>
+
+    <section class="page" id="sources">
+      <div class="section-head"><span class="kicker">SUMMARY</span><h2>5가지 에너지 한눈에 비교</h2><p>명칭·원리·활용이 빠짐없이 들어갔는지 마지막으로 확인할 수 있도록 정리했다.</p></div>
+      <div class="score-table"><table><thead><tr><th>구분</th><th>에너지 명칭</th><th>핵심 원리</th><th>대표 활용</th><th>국내 사례</th><th>그림</th></tr></thead><tbody><tr><td><span class="tag">재생</span></td><td><b>풍력</b></td><td>바람 → 회전 → 전자기 유도</td><td>전력망, 분산전원, 수소 생산전력</td><td>경북 영양풍력</td><td>그림 1</td></tr><tr><td><span class="tag">재생</span></td><td><b>태양광</b></td><td>광전효과 → 직류 → 인버터</td><td>지붕, 수상태양광, 독립전원</td><td>경남 합천댐</td><td>그림 2</td></tr><tr><td><span class="tag">재생</span></td><td><b>조력</b></td><td>조수의 수위 차 → 수차 → 발전기</td><td>전력 생산, 방조제 연계, 해수 유통</td><td>안산 시화호</td><td>그림 3</td></tr><tr><td><span class="tag">신에너지</span></td><td><b>수소</b></td><td>재생전력으로 물 전기분해</td><td>수소차, 연료전지 발전, 산업</td><td>제주 행원</td><td>그림 4</td></tr><tr><td><span class="tag">신에너지</span></td><td><b>연료전지(DMFC)</b></td><td>메탄올 전기화학반응 → 전류</td><td>물류, 백업전원, 오프그리드</td><td>전북 완주 가온셀</td><td>그림 5</td></tr></tbody></table></div>
+      <div class="section-head" style="margin-top:42px"><span class="kicker">REFERENCES</span><h2>주요 자료 출처</h2><p>공공기관과 해당 기술·시설 운영기관 자료를 우선 사용했다.</p></div>
+      <div class="source-list">
+        <a class="source" href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=b2f8d657-7513-4741-af9c-3b0dbab537cb" target="_blank"><strong>한국관광공사 — 영양 풍력발전단지</strong><small>맹동산 일대 위치와 풍력발전단지 소개</small></a>
+        <a class="source" href="https://www.kpx.or.kr/" target="_blank"><strong>전력거래소 — 발전설비 현황</strong><small>영양풍력 설비용량 61.5MW 확인</small></a>
+        <a class="source" href="https://www.kwater.or.kr/news/repoView.do?brdId=KO26&pageNo=13&s_mid=362&seq=136557" target="_blank"><strong>K-water — 합천댐 수상태양광</strong><small>1단계 약 41.5MW와 발전 개시 정보</small></a>
+        <a class="source" href="https://www.kwater.or.kr/website/tlight/sub01_05.do" target="_blank"><strong>K-water — 시화호 조력발전소</strong><small>조력 254MW, 25.4MW급 수차발전기 10기, 연간 약 552GWh</small></a>
+        <a class="source" href="https://www.knrec.or.kr/biz/korea/intro/kor_ocean.do" target="_blank"><strong>한국에너지공단 — 해양에너지 소개</strong><small>조석간만의 차를 이용한 조력발전 원리 참고</small></a>
+        <a class="source" href="https://www.motie.go.kr/" target="_blank"><strong>산업통상자원부 — 제주 그린수소</strong><small>행원 3.3MW 수전해 단지와 약 200kg/일 생산 사례</small></a>
+        <a class="source" href="https://www.gaoncell.com/ko/technology/tec-fc/dmfc" target="_blank"><strong>가온셀 — DMFC 기술</strong><small>메탄올 연료전지 원리·제품 활용 및 완주 소재지</small></a>
+        <a class="source" href="https://www.knrec.or.kr/biz/korea/intro/kor_fuel.do" target="_blank"><strong>한국에너지공단 — 연료전지</strong><small>연료전지의 전기화학반응과 DMFC 분류</small></a>
+        <a class="source" href="https://www.jejuenergy.or.kr/index.php/contents/energy/cfi" target="_blank"><strong>제주에너지공사 — CFI 기술투어</strong><small>행원 풍력발전단지와 제주 풍력·태양광 원리</small></a>
+        <a class="source" href="https://www.jejuenergy.or.kr/index.php/contents/business/part1" target="_blank"><strong>제주에너지공사 — 발전설비 운영관리</strong><small>행원태양광 415kW와 제주 풍력·태양광 설비 현황</small></a>
+        <a class="source" href="https://www.jeju.go.kr/lifecycle/notice/guide.htm?act=download&no=1&seq=2003033" target="_blank"><strong>제주특별자치도 — 그린수소 생산 실증사업</strong><small>3.3MW 생산기지 운영과 수소 생산·충전·활용 계획</small></a>
+      </div>
+      <div class="notice" style="margin-top:24px"><b>마무리</b><br>신·재생에너지는 모두 같은 방식으로 전기를 만드는 것이 아니라, 바람·빛·물·수소·연료의 화학에너지를 서로 다른 장치와 원리로 변환한다. 또한 시설의 성능은 기술뿐 아니라 바람, 햇빛, 낙차, 기존 인프라 같은 지역 조건에 크게 영향을 받으므로, 지역의 특성에 맞는 에너지원을 선택하고 서로 조합하는 것이 중요하다.</div>
+    </section>
+  </main>
+
+  <footer class="footer"><b>ENERGY NOTE · 신·재생에너지 탐구</b><br>풍력 · 태양광 · 조력 · 수소 · 직접메탄올 연료전지 · 제주 행원 친환경 에너지 조성지역</footer>
+  <button class="print-btn" onclick="window.print()">🖨️ 인쇄 / PDF</button>
+  <script>
+    function showPage(id){
+      document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+      const target=document.getElementById(id); if(target) target.classList.add('active');
+      document.querySelectorAll('.nav button').forEach(btn=>btn.classList.toggle('active',btn.dataset.page===id));
+      history.replaceState(null,'','#'+id); window.scrollTo({top:0,behavior:'smooth'});
+    }
+    const hash=location.hash.replace('#',''); if(hash && document.getElementById(hash)){showPage(hash)}
+  </script>
+</body>
+</html>
